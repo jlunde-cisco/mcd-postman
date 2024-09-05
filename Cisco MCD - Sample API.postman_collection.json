@@ -1,0 +1,4301 @@
+{
+	"info": {
+		"_postman_id": "afe534a2-9eba-4fb3-bc68-3a32670b5506",
+		"name": "Cisco MCD - Sample API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4756631"
+	},
+	"item": [
+		{
+			"name": "Address Group",
+			"item": [
+				{
+					"name": "Src/Dest",
+					"item": [
+						{
+							"name": "Create (Dynamic VPC)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Get New Id\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(typeof jsonData.id).to.eql(\"number\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"vpc-list1\",\r\n    \"description\": \"\",\r\n    \"type\": \"DYNAMIC_VPC\",\r\n    \"cspAccount\": \"\",\r\n    \"region\": \"\",\r\n    \"vpcID\": \"\",\r\n    \"value\": \"test1.domain1.com,test2.domain1.com,test1.domain2.com,test2.domain2.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/addressgroup/create",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"addressgroup",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create (GeoIP)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Get New Id\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(typeof jsonData.id).to.eql(\"number\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"geoip-list1\",\r\n    \"type\": \"GEOIP\",\r\n    \"value\": \"CN,RU\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/addressgroup/create",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"addressgroup",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create (Static)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Get New Id\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(typeof jsonData.id).to.eql(\"number\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"fqdn-list1\",\r\n    \"type\": \"STATIC\",\r\n    \"value\": \"b0-pkc-pgq85.us-west-2.aws.confluent.cloud,b1-pkc-pgq85.us-west-2.aws.confluent.cloud\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/addressgroup/create",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"addressgroup",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Reverse Proxy Target",
+					"item": [
+						{
+							"name": "Create (Static)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Get New Id\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(typeof jsonData.id).to.eql(\"number\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"backend-target\",\r\n    \"type\": \"STATIC\",\r\n    \"isBackendAddressGroup\": true,\r\n    \"value\": \"10.0.0.100\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/addressgroup/create",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"addressgroup",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Blank Response\", function () {\r",
+									"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"id\": 414\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/addressgroup/delete",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"addressgroup",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get Id\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(typeof jsonData.addressGroup.id).to.eql(\"number\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/addressgroup/list",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"addressgroup",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get Id\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(typeof jsonData.addressGroup.id).to.eql(\"number\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"fqdn-list1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/addressgroup/get",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"addressgroup",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read Addresses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get Array List\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.addressEntryList && Array.isArray(jsonData.addressEntryList)).to.eql(true);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"fqdn-list1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/addressgroup/getaddresslistunary",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"addressgroup",
+								"getaddresslistunary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Blank Response\", function () {\r",
+									"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"fqdn-list1\",\r\n    \"type\": \"UPDATE_VALUE\",\r\n    \"value\": \"test1.domain1.com,test2.domain1.com,test1.domain2.com,test2.domain2.com,test1.domain3.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/addressgroup/update",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"addressgroup",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Blank Response\", function () {\r",
+									"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"id\": 414,\r\n    \"name\": \"fqdn-list2\",\r\n    \"type\": \"UPDATE_NAME\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/addressgroup/update",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"addressgroup",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CSP Account",
+			"item": [
+				{
+					"name": "AWS",
+					"item": [
+						{
+							"name": "Create AWS External Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"pm.environment.set(\"awsIAMRoleExternalID\", jsonData.awsIAMRoleExternalID);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/cspaccount/createawsexternalid",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cspaccount",
+										"createawsexternalid"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"csp\": \"AWS\",\r\n    \"credentialsType\": \"AWS_IAM_ROLE\",\r\n    \"name\": \"AWS-Account1\",\r\n    \"accountNumber\": \"369468240479\",\r\n    \"awsIAMRoleExternalID\": \"asdgasdgasdgasdgasdgasdgasdgasdgasdgasdgasdg\",\r\n    \"awsIAMRole\": \"arn:aws:iam::369468240479:role/valtix-controller-role\",\r\n    \"awsInventoryIAMRole\": \"arn:aws:iam::369468240479:role/valtix-inventory-role\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/cspaccount/create",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cspaccount",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"csp\": \"AWS\",\r\n    \"credentialsType\": \"AWS_IAM_ROLE\",\r\n    \"name\": \"AWS-Account1\",\r\n    \"accountNumber\": \"369468240479\",\r\n    \"awsIAMRoleExternalID\": \"asdgasdgasdgasdgasdgasdgasdgasdgasdgasdgasdg\",\r\n    \"awsIAMRole\": \"arn:aws:iam::369468240479:role/valtix-controller-role\",\r\n    \"awsInventoryIAMRole\": \"arn:aws:iam::369468240479:role/valtix-inventory-role\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/cspaccount/update",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cspaccount",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Azure",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"csp\": \"AZURE\",\r\n    \"credentialsType\": \"AZURE_CLIENT_CREDENTIALS\",\r\n    \"name\": \"Azure-Account1\",\r\n    \"accountNumber\":\"3551217b-8831-4081-88c5-3f1337a2ab7e\",\r\n    \"subscriptionID\":\"0f0c114a-8b2d-423f-9bbd-30648980c7e7\",\r\n    \"applicationID\":\"e1464e9b-159b-4213-85a4-7694f1287746\",\r\n    \"clientSecret\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/cspaccount/create",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cspaccount",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"csp\": \"AZURE\",\r\n    \"credentialsType\": \"AZURE_CLIENT_CREDENTIALS\",\r\n    \"name\": \"Azure-Account1\",\r\n    \"accountNumber\":\"3551217b-8831-4081-88c5-3f1337a2ab7e\",\r\n    \"subscriptionID\":\"4dd570f7-2c54-44fd-a5bc-cbd39a2b174c\",\r\n    \"applicationID\":\"c200f312-052f-469a-8ad4-629d499a6e52\",\r\n    \"clientSecret:\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/cspaccount/update",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cspaccount",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GCP",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"csp\": \"GCP\",\r\n    \"credentialsType\": \"GCP_SERVICE_ACCOUNT\",\r\n    \"name\": \"GCP-Account1\",\r\n    \"gcpProjectID\": \"john-lab\",\r\n    \"gcpClientEmail\": \"valtix-controller@john-lab.iam.gserviceaccount.com\",\r\n    \"privateKey\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/cspaccount/create",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cspaccount",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"csp\": \"GCP\",\r\n    \"credentialsType\": \"GCP_SERVICE_ACCOUNT\",\r\n    \"name\": \"GCP-Account1\",\r\n    \"gcpProjectID\": \"john-lab\",\r\n    \"gcpClientEmail\": \"valtix-controller@john-lab.iam.gserviceaccount.com\",\r\n    \"privateKey\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/cspaccount/update",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cspaccount",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"AWS-Account1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/cspaccount/delete",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cspaccount",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/cspaccount/list",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cspaccount",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"AWS-Account1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/cspaccount/get",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cspaccount",
+								"get"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Discover",
+			"item": [
+				{
+					"name": "VPC",
+					"item": [
+						{
+							"name": "List",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"cspAcctName\": \"AWS-Account3\",\r\n    \"region\": \"us-east-1\",\r\n    \"localInventory\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/discovery/vpc/list",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"discovery",
+										"vpc",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Subnet",
+					"item": [
+						{
+							"name": "List",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"cspAcctName\": \"AWS-Account3\",\r\n    \"region\": \"us-east-1\",\r\n    \"vpcID\": \"vpc-009d95877149ebd80\",\r\n    \"localInventory\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/discovery/subnet/list",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"discovery",
+										"subnet",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Security Group",
+					"item": [
+						{
+							"name": "List",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"cspAcctName\": \"AWS-Account3\",\r\n    \"region\": \"us-east-1\",\r\n    \"vpcID\": \"vpc-009d95877149ebd80\",\r\n    \"localInventory\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/discovery/securitygroup/list",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"discovery",
+										"securitygroup",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Routes",
+					"item": [
+						{
+							"name": "AWS",
+							"item": [
+								{
+									"name": "List",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    },\r\n    \"cspAcctName\": \"AWS-Account\",\r\n    \"region\": \"us-east-2\",\r\n    \"vpcID\": \"vpc-0492538e25fb5f074\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/api/v1/discovery/routetables/list",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"discovery",
+												"routetables",
+												"list"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Azure",
+							"item": [
+								{
+									"name": "List",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    },\r\n    \"cspAcctName\": \"Azure-Account\",\r\n    \"region\": \"eastus\",\r\n    \"vpcID\": \"/subscriptions/0f0c114a-8b2d-423f-9bbd-30648980c7e7/resourceGroups/sealpha-valtix-gwlb-rg/providers/Microsoft.Network/virtualNetworks/sealpha-valtix-john-lab-eastus-gwlb-spoke1-vnet\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/api/v1/discovery/routetables/list",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"discovery",
+												"routetables",
+												"list"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "GCP",
+							"item": [
+								{
+									"name": "List",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    },\r\n    \"cspAcctName\": \"GCP-Account\",\r\n    \"region\": \"us-east1\",\r\n    \"vpcID\": \"https://www.googleapis.com/compute/v1/projects/john-lab/global/networks/gcp-workload\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/api/v1/discovery/routetables/list",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"discovery",
+												"routetables",
+												"list"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Gateway",
+			"item": [
+				{
+					"name": "AWS",
+					"item": [
+						{
+							"name": "Availability Zone List",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"common\": {\n        \"acctName\": \"{{acctName}}\",\n        \"source\": \"RESTAPI\",\n        \"clientVersion\": \"Valtix-2022\"\n    },\n    \"cspAcctName\": \"AWS-Account\",\n    \"region\": \"af-south-1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/discovery/availabilityzones/list",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"discovery",
+										"availabilityzones",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create (default EK)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"common\": {\n        \"acctName\": \"{{acctName}}\",\n        \"source\": \"RESTAPI\",\n        \"clientVersion\": \"CiscoMCD-2022\"\n    },\n    \"gateway\": {\n        \"cspAcctName\": \"AWS-Account3\",\n        \"name\": \"aws-egress-gw\",\n        \"description\": \"AWS EDGE Gateway\",\n        \"mode\": \"EDGE\",\n        \"type\": \"CLUSTER\",\n        \"minInstances\": 1,\n        \"maxInstances\": 1,\n        \"healthCheckPort\": 65534,\n        \"policyRuleSetId\": 20,\n        \"flags\": [\n            \"GATEWAY_FLAGS_EGRESS_FIREWALL\",\n            \"GATEWAY_FLAGS_AWS_GATEWAY_LB\"\n        ]\n    },\n    \"settings\": [\n        {\n            \"name\": \"gateway.aws.ebs.encryption.key.default\"\n        },\n        {\n            \"name\": \"controller.gateway.assign_public_ip\",\n            \"value\": \"true\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.entry_ttl\",\n            \"value\": \"86400\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.size\",\n            \"value\": \"320000\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.update_interval\",\n            \"value\": \"3\"\n        }\n    ],\n    \"config\": {\n        \"imageID\": \"ami-0d4503cbd6e9e1212\",\n        \"sshKeyId\": \"valtix-key-gateway\",\n        \"iamRoleName\": \"valtix-firewall-role\",\n        \"region\": \"us-west-1\",\n        \"vpcId\": \"vpc-05eaa9c4b31f358f9\",\n        \"availabilityZones\": [\n            \"us-west-1a\"\n        ],\n        \"interfaceConfigs\": [\n            {\n                \"type\": \"MGMT_INTERFACE\",\n                \"index\": 0,\n                \"availabilityZone\": \"us-west-1a\",\n                \"subnetID\": \"subnet-0500c2dc696322cc3\",\n                \"securityGroupID\": \"sg-02c5abfb9b4a81508\",\n                \"vpcID\": \"\"\n            },\n            {\n                \"type\": \"FRONTEND_INTERFACE\",\n                \"index\": 0,\n                \"availabilityZone\": \"us-west-1a\",\n                \"subnetID\": \"subnet-04d0aba543c51ce0c\",\n                \"securityGroupID\": \"sg-08cba88525793d4cc\",\n                \"vpcID\": \"vpc-05eaa9c4b31f358f9\"\n            }\n        ],\n        \"instanceType\": \"AWS_M5_LARGE\",\n        \"controllerAddr\": \"v8-apiserver.vtxsecurityservices.com:8091\",\n        \"dpImageVersion\": \"22.10-02\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/gateway/run",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"gateway",
+										"run"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create (CMEK)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"common\": {\n        \"acctName\": \"{{acctName}}\",\n        \"source\": \"RESTAPI\",\n        \"clientVersion\": \"Valtix-2022\"\n    },\n    \"gateway\": {\n        \"cspAcctName\": \"AWS-Account3\",\n        \"name\": \"aws-egress-gw\",\n        \"description\": \"AWS EDGE Gateway\",\n        \"mode\": \"EDGE\",\n        \"type\": \"CLUSTER\",\n        \"minInstances\": 1,\n        \"maxInstances\": 1,\n        \"healthCheckPort\": 65534,\n        \"policyRuleSetId\": 20,\n        \"flags\": [\n            \"GATEWAY_FLAGS_EGRESS_FIREWALL\",\n            \"GATEWAY_FLAGS_AWS_GATEWAY_LB\"\n        ]\n    },\n    \"settings\": [\n        {\n            \"name\": \"gateway.aws.ebs.encryption.key.customer_key\",\n            \"value\": \"6b69e022-9805-4be1-83ec-7587202b7d1a\"\n        },\n        {\n            \"name\": \"controller.gateway.assign_public_ip\",\n            \"value\": \"true\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.entry_ttl\",\n            \"value\": \"86400\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.size\",\n            \"value\": \"320000\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.update_interval\",\n            \"value\": \"3\"\n        }\n    ],\n    \"config\": {\n        \"imageID\": \"ami-0d4503cbd6e9e1212\",\n        \"sshKeyId\": \"valtix-key-gateway\",\n        \"iamRoleName\": \"valtix-firewall-role\",\n        \"region\": \"us-west-1\",\n        \"vpcId\": \"vpc-05eaa9c4b31f358f9\",\n        \"availabilityZones\": [\n            \"us-west-1a\"\n        ],\n        \"interfaceConfigs\": [\n            {\n                \"type\": \"MGMT_INTERFACE\",\n                \"index\": 0,\n                \"availabilityZone\": \"us-west-1a\",\n                \"subnetID\": \"subnet-0500c2dc696322cc3\",\n                \"securityGroupID\": \"sg-02c5abfb9b4a81508\",\n                \"vpcID\": \"\"\n            },\n            {\n                \"type\": \"FRONTEND_INTERFACE\",\n                \"index\": 0,\n                \"availabilityZone\": \"us-west-1a\",\n                \"subnetID\": \"subnet-04d0aba543c51ce0c\",\n                \"securityGroupID\": \"sg-08cba88525793d4cc\",\n                \"vpcID\": \"vpc-05eaa9c4b31f358f9\"\n            }\n        ],\n        \"instanceType\": \"AWS_M5_LARGE\",\n        \"controllerAddr\": \"v8-apiserver.vtxsecurityservices.com:8091\",\n        \"dpImageVersion\": \"22.10-02\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/gateway/run",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"gateway",
+										"run"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Azure",
+					"item": [
+						{
+							"name": "Availability Zone List",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"common\": {\n        \"acctName\": \"{{acctName}}\",\n        \"source\": \"RESTAPI\",\n        \"clientVersion\": \"Valtix-2022\"\n    },\n    \"cspAcctName\": \"Azure-Account\",\n    \"region\": \"westus\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/discovery/availabilityzones/list",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"discovery",
+										"availabilityzones",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create (default EK)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"common\": {\n        \"acctName\": \"{{acctName}}\",\n        \"source\": \"RESTAPI\",\n        \"clientVersion\": \"Valtix-2022\"\n    },\n    \"gateway\": {\n        \"name\": \"azure-egress-gw\",\n        \"description\": \"Azure EDGE Gateway\",\n        \"cspAcctName\": \"Azure-Account1\",\n        \"mode\": \"EDGE\",\n        \"type\": \"CLUSTER\",\n        \"minInstances\": 1,\n        \"maxInstances\": 1,\n        \"healthCheckPort\": 65534,\n        \"policyRuleSetId\": 19,\n        \"flags\": [\n            \"GATEWAY_FLAGS_EGRESS_FIREWALL\"\n        ]\n    },\n    \"settings\": [\n        {\n            \"name\": \"controller.gateway.assign_public_ip\",\n            \"value\": \"true\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.entry_ttl\",\n            \"value\": \"86400\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.size\",\n            \"value\": \"320000\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.update_interval\",\n            \"value\": \"3\"\n        }\n    ],\n    \"config\": {\n        \"imageID\": \"/marketplace/valtix/datapath/valtix_dp_image/0.0.6\",\n        \"region\": \"eastus\",\n        \"vpcId\": \"/subscriptions/0f0c114a-8b2d-423f-9bbd-30648980c7e7/resourceGroups/valtix-rg/providers/Microsoft.Network/virtualNetworks/Azure-SVNet\",\n        \"availabilityZones\": [\n        \"1\"\n        ],\n        \"interfaceConfigs\": [\n        {\n            \"type\": \"MGMT_INTERFACE\",\n            \"index\": 0,\n            \"availabilityZone\": \"1\",\n            \"subnetID\": \"/subscriptions/0f0c114a-8b2d-423f-9bbd-30648980c7e7/resourceGroups/valtix-rg/providers/Microsoft.Network/virtualNetworks/Azure-SVNet/subnets/Azure-SVNet-mgmt\",\n            \"securityGroupID\": \"/subscriptions/0f0c114a-8b2d-423f-9bbd-30648980c7e7/resourceGroups/valtix-rg/providers/Microsoft.Network/networkSecurityGroups/Azure-SVNet-mgmt-sg\",\n            \"vpcID\": \"/subscriptions/0f0c114a-8b2d-423f-9bbd-30648980c7e7/resourceGroups/valtix-rg/providers/Microsoft.Network/virtualNetworks/Azure-SVNet\"\n        },\n        {\n            \"type\": \"FRONTEND_INTERFACE\",\n            \"index\": 0,\n            \"availabilityZone\": \"1\",\n            \"subnetID\": \"/subscriptions/0f0c114a-8b2d-423f-9bbd-30648980c7e7/resourceGroups/valtix-rg/providers/Microsoft.Network/virtualNetworks/Azure-SVNet/subnets/Azure-SVNet-datapath\",\n            \"securityGroupID\": \"/subscriptions/0f0c114a-8b2d-423f-9bbd-30648980c7e7/resourceGroups/valtix-rg/providers/Microsoft.Network/networkSecurityGroups/Azure-SVNet-datapath-sg\",\n            \"vpcID\": \"/subscriptions/0f0c114a-8b2d-423f-9bbd-30648980c7e7/resourceGroups/valtix-rg/providers/Microsoft.Network/virtualNetworks/Azure-SVNet\"\n        }\n        ],\n        \"instanceType\": \"AZURE_D2S_V3\",\n        \"controllerAddr\": \"v8-apiserver.vtxsecurityservices.com:8091\",\n        \"dpImageVersion\": \"22.10-02\",\n        \"userName\": \"centos\",\n        \"sshPublicKey\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCbpwEUuP72E8477YusyCgCz3h+2rgFaG2E3w+mYwEI17/cJ4eFfzNXnfbrz937S2s2U0VfHTpy0qwnzUJHJqYhmYr9TNGZqOti514iATiBFed8NG6GoPc4MXHMPD1pE2wJh7xTKlVoZvTe0DpyVja5/5hKq7jHOAfotI/VfaHMKVu2JngAuMSHMFEpLRHJI2L6yW/NBWvCUmnD6VYjncl5FRKAWPFzrtVTqbM0Xgci/3LWVlBUY6ANIMW5mvVVxDt2CPg0bAuc+kmBuukKzOgZ9gYUHfMfRrBPAYna1PM9oyrRvDzJyZVHwXkaM+P/CuaXa3JDHzDGyyLYxi2BKAvf\",\n        \"resourceGroup\": \"valtix-rg\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/gateway/run",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"gateway",
+										"run"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create (CMEK)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"common\": {\n        \"acctName\": \"{{acctName}}\",\n        \"source\": \"RESTAPI\",\n        \"clientVersion\": \"Valtix-2022\"\n    },\n    \"gateway\": {\n        \"name\": \"azure-egress-gw\",\n        \"description\": \"Azure EDGE Gateway\",\n        \"cspAcctName\": \"Azure-Account1\",\n        \"mode\": \"EDGE\",\n        \"type\": \"CLUSTER\",\n        \"minInstances\": 1,\n        \"maxInstances\": 1,\n        \"healthCheckPort\": 65534,\n        \"policyRuleSetId\": 19,\n        \"flags\": [\n            \"GATEWAY_FLAGS_EGRESS_FIREWALL\"\n        ]\n    },\n    \"settings\": [\n        {\n            \"name\": \"gateway.azure.disk.encryption.key.customer_key\",\n            \"value\": \"/subscriptions/0f0c114a-8b2d-423f-9bbd-30648980c7e7/resourceGroups/valtix-rg/providers/Microsoft.Compute/diskEncryptionSets/hardikDiskEncryptionSet\"\n        },\n        {\n            \"name\": \"controller.gateway.assign_public_ip\",\n            \"value\": \"true\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.entry_ttl\",\n            \"value\": \"86400\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.size\",\n            \"value\": \"320000\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.update_interval\",\n            \"value\": \"3\"\n        }\n    ],\n    \"config\": {\n        \"imageID\": \"/marketplace/valtix/datapath/valtix_dp_image/0.0.6\",\n        \"region\": \"eastus\",\n        \"vpcId\": \"/subscriptions/0f0c114a-8b2d-423f-9bbd-30648980c7e7/resourceGroups/valtix-rg/providers/Microsoft.Network/virtualNetworks/Azure-SVNet\",\n        \"availabilityZones\": [\n        \"1\"\n        ],\n        \"interfaceConfigs\": [\n        {\n            \"type\": \"MGMT_INTERFACE\",\n            \"index\": 0,\n            \"availabilityZone\": \"1\",\n            \"subnetID\": \"/subscriptions/0f0c114a-8b2d-423f-9bbd-30648980c7e7/resourceGroups/valtix-rg/providers/Microsoft.Network/virtualNetworks/Azure-SVNet/subnets/Azure-SVNet-mgmt\",\n            \"securityGroupID\": \"/subscriptions/0f0c114a-8b2d-423f-9bbd-30648980c7e7/resourceGroups/valtix-rg/providers/Microsoft.Network/networkSecurityGroups/Azure-SVNet-mgmt-sg\",\n            \"vpcID\": \"/subscriptions/0f0c114a-8b2d-423f-9bbd-30648980c7e7/resourceGroups/valtix-rg/providers/Microsoft.Network/virtualNetworks/Azure-SVNet\"\n        },\n        {\n            \"type\": \"FRONTEND_INTERFACE\",\n            \"index\": 0,\n            \"availabilityZone\": \"1\",\n            \"subnetID\": \"/subscriptions/0f0c114a-8b2d-423f-9bbd-30648980c7e7/resourceGroups/valtix-rg/providers/Microsoft.Network/virtualNetworks/Azure-SVNet/subnets/Azure-SVNet-datapath\",\n            \"securityGroupID\": \"/subscriptions/0f0c114a-8b2d-423f-9bbd-30648980c7e7/resourceGroups/valtix-rg/providers/Microsoft.Network/networkSecurityGroups/Azure-SVNet-datapath-sg\",\n            \"vpcID\": \"/subscriptions/0f0c114a-8b2d-423f-9bbd-30648980c7e7/resourceGroups/valtix-rg/providers/Microsoft.Network/virtualNetworks/Azure-SVNet\"\n        }\n        ],\n        \"instanceType\": \"AZURE_D2S_V3\",\n        \"controllerAddr\": \"v8-apiserver.vtxsecurityservices.com:8091\",\n        \"dpImageVersion\": \"22.10-02\",\n        \"userName\": \"centos\",\n        \"sshPublicKey\": \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCbpwEUuP72E8477YusyCgCz3h+2rgFaG2E3w+mYwEI17/cJ4eFfzNXnfbrz937S2s2U0VfHTpy0qwnzUJHJqYhmYr9TNGZqOti514iATiBFed8NG6GoPc4MXHMPD1pE2wJh7xTKlVoZvTe0DpyVja5/5hKq7jHOAfotI/VfaHMKVu2JngAuMSHMFEpLRHJI2L6yW/NBWvCUmnD6VYjncl5FRKAWPFzrtVTqbM0Xgci/3LWVlBUY6ANIMW5mvVVxDt2CPg0bAuc+kmBuukKzOgZ9gYUHfMfRrBPAYna1PM9oyrRvDzJyZVHwXkaM+P/CuaXa3JDHzDGyyLYxi2BKAvf\",\n        \"resourceGroup\": \"valtix-rg\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/gateway/run",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"gateway",
+										"run"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GCP",
+					"item": [
+						{
+							"name": "Availability Zone List",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"common\": {\n        \"acctName\": \"{{acctName}}\",\n        \"source\": \"RESTAPI\",\n        \"clientVersion\": \"Valtix-2022\"\n    },\n    \"cspAcctName\": \"GCP-Account1\",\n    \"region\": \"europe-west3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/discovery/availabilityzones/list",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"discovery",
+										"availabilityzones",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create (default EK)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"common\": {\n        \"acctName\": \"{{acctName}}\",\n        \"source\": \"RESTAPI\",\n        \"clientVersion\": \"Valtix-2022\"\n    },\n    \"gateway\": {\n        \"cspAcctName\": \"GCP-Account1\",\n        \"name\": \"gcp-egress-gw\",\n        \"description\": \"GCP EDGE Gateway\",\n        \"mode\": \"EDGE\",\n        \"type\": \"CLUSTER\",\n        \"minInstances\": 1,\n        \"maxInstances\": 1,\n        \"healthCheckPort\": 65534,\n        \"policyRuleSetId\": 18,\n        \"flags\": [\n            \"GATEWAY_FLAGS_EGRESS_FIREWALL\"\n        ]\n    },\n    \"settings\": [\n        {\n            \"name\": \"controller.gateway.assign_public_ip\",\n            \"value\": \"true\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.entry_ttl\",\n            \"value\": \"86400\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.size\",\n            \"value\": \"320000\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.update_interval\",\n            \"value\": \"3\"\n        }\n    ],\n    \"config\": {\n        \"imageID\": \"https://www.googleapis.com/compute/v1/projects/elemental-icon-254205/global/images/valtix-boot-image-v7\",\n        \"region\": \"us-west1\",\n        \"vpcId\": \"https://www.googleapis.com/compute/v1/projects/john-lab/global/networks/gcp-svpc\",\n        \"availabilityZones\": [\n        \"us-west1-b\"\n        ],\n        \"interfaceConfigs\": [\n        {\n            \"type\": \"MGMT_INTERFACE\",\n            \"index\": 0,\n            \"availabilityZone\": \"us-west1-b\",\n            \"subnetID\": \"https://www.googleapis.com/compute/v1/projects/john-lab/regions/us-west1/subnetworks/gcp-svpc-mgmt-us-west1\",\n            \"securityGroupID\": \"valtix-mgmt\",\n            \"vpcID\": \"https://www.googleapis.com/compute/v1/projects/john-lab/global/networks/gcp-svpc-mgmt\"\n        },\n        {\n            \"type\": \"FRONTEND_INTERFACE\",\n            \"index\": 0,\n            \"availabilityZone\": \"us-west1-b\",\n            \"subnetID\": \"https://www.googleapis.com/compute/v1/projects/john-lab/regions/us-west1/subnetworks/gcp-svpc-us-west1\",\n            \"securityGroupID\": \"valtix-datapath\",\n            \"vpcID\": \"https://www.googleapis.com/compute/v1/projects/john-lab/global/networks/gcp-svpc\"\n        }\n        ],\n        \"instanceType\": \"GCP_E2_2\",\n        \"controllerAddr\": \"v8-apiserver.vtxsecurityservices.com:8091\",\n        \"dpImageVersion\": \"22.24-01\",\n        \"serviceAccountEmail\": \"valtix-gateway@john-lab.iam.gserviceaccount.com\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/gateway/run",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"gateway",
+										"run"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create (CMEK)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"common\": {\n        \"acctName\": \"{{acctName}}\",\n        \"source\": \"RESTAPI\",\n        \"clientVersion\": \"Valtix-2022\"\n    },\n    \"gateway\": {\n        \"cspAcctName\": \"GCP-Account1\",\n        \"name\": \"gcp-egress-gw\",\n        \"description\": \"GCP EDGE Gateway\",\n        \"mode\": \"EDGE\",\n        \"type\": \"CLUSTER\",\n        \"minInstances\": 1,\n        \"maxInstances\": 1,\n        \"healthCheckPort\": 65534,\n        \"policyRuleSetId\": 18,\n        \"flags\": [\n            \"GATEWAY_FLAGS_EGRESS_FIREWALL\"\n        ]\n    },\n    \"settings\": [\n        {\n            \"name\": \"gateway.gcp.disk.encryption.key.customer_key\",\n            \"value\": \"https://www.googleapis.com/compute/v1/projects/john-lab/locations/us-west1/keyRings/john-lab-disk-encryption/cryptoKeys/key1\"\n        },\n        {\n            \"name\": \"controller.gateway.assign_public_ip\",\n            \"value\": \"true\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.entry_ttl\",\n            \"value\": \"86400\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.size\",\n            \"value\": \"320000\"\n        },\n        {\n            \"name\": \"gateway.fqdn_ip_cache.update_interval\",\n            \"value\": \"3\"\n        }\n    ],\n    \"config\": {\n        \"imageID\": \"https://www.googleapis.com/compute/v1/projects/elemental-icon-254205/global/images/valtix-boot-image-v7\",\n        \"region\": \"us-west1\",\n        \"vpcId\": \"https://www.googleapis.com/compute/v1/projects/john-lab/global/networks/gcp-svpc\",\n        \"availabilityZones\": [\n        \"us-west1-b\"\n        ],\n        \"interfaceConfigs\": [\n        {\n            \"type\": \"MGMT_INTERFACE\",\n            \"index\": 0,\n            \"availabilityZone\": \"us-west1-b\",\n            \"subnetID\": \"https://www.googleapis.com/compute/v1/projects/john-lab/regions/us-west1/subnetworks/gcp-svpc-mgmt-us-west1\",\n            \"securityGroupID\": \"valtix-mgmt\",\n            \"vpcID\": \"https://www.googleapis.com/compute/v1/projects/john-lab/global/networks/gcp-svpc-mgmt\"\n        },\n        {\n            \"type\": \"FRONTEND_INTERFACE\",\n            \"index\": 0,\n            \"availabilityZone\": \"us-west1-b\",\n            \"subnetID\": \"https://www.googleapis.com/compute/v1/projects/john-lab/regions/us-west1/subnetworks/gcp-svpc-us-west1\",\n            \"securityGroupID\": \"valtix-datapath\",\n            \"vpcID\": \"https://www.googleapis.com/compute/v1/projects/john-lab/global/networks/gcp-svpc\"\n        }\n        ],\n        \"instanceType\": \"GCP_E2_2\",\n        \"controllerAddr\": \"v8-apiserver.vtxsecurityservices.com:8091\",\n        \"dpImageVersion\": \"22.24-01\",\n        \"serviceAccountEmail\": \"valtix-gateway@john-lab.iam.gserviceaccount.com\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/gateway/run",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"gateway",
+										"run"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Platform",
+					"item": [
+						{
+							"name": "Update (Image)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    },\r\n    \"gatewayName\": \"aws-egress-gw\",\r\n    \"dpImageVersion\": \"22.10-08\",\r\n    \"type\": \"UPDATE_DP_IMAGE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/gateway/platformconfig/update",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"gateway",
+										"platformconfig",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update (Instance Type)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    },\r\n    \"gatewayName\": \"aws-egress-gw\",\r\n    \"instanceType\": \"AWS_M5_XLARGE\",\r\n    \"type\": \"UPDATE_INSTANCE_TYPE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/gateway/platformconfig/update",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"gateway",
+										"platformconfig",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"aws-egress-gw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/gateway/delete",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"gateway",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Disable",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Blank Response\", function () {\r",
+									"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"aws-egress-gw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/gateway/disable",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"gateway",
+								"disable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enable",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Blank Response\", function () {\r",
+									"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"aws-egress-gw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/gateway/enable",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"gateway",
+								"enable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"detail\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/gateway/list",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"gateway",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"aws-egress-gw\",\r\n    \"includeDatapathPolicyInfo\": false,\r\n    \"includeDestAddressGroupInfo\": false,\r\n    \"includeInstanceInfo\": false,\r\n    \"includeNATGatewayInfo\": false\r\n    \"includeGWLBEndpointInfo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/gateway/get",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"gateway",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"aws-egress-gw\",\r\n    \"operation\": \"CLUSTER_SIZE\",\r\n    \"minInstances\": 1,\r\n    \"maxInstances\": \"2\",\r\n    \"description\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/gateway/update",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"gateway",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Setting (DNS TTL)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"gatewayName\": \"aws-egress-gw\",\r\n    \"setting\": {\r\n        \"name\": \"gateway.fqdn_ip_cache.entry_ttl\",\r\n        \"value\": \"86400\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/gateway/setting",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"gateway",
+								"setting"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Setting (DNS Cache)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"gatewayName\": \"aws-egress-gw\",\r\n    \"setting\": {\r\n        \"name\": \"gateway.fqdn_ip_cache.size\",\r\n        \"value\": \"320000\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/gateway/setting",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"gateway",
+								"setting"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Setting (DNS Interval)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"gatewayName\": \"aws-egress-gw\",\r\n    \"setting\": {\r\n        \"name\": \"gateway.fqdn_ip_cache.update_interval\",\r\n        \"value\": \"3\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/gateway/setting",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"gateway",
+								"setting"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Setting (Tags)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"gatewayName\": \"td-egress-gateway\",\r\n    \"setting\": {\r\n        \"name\": \"custom_tags\",\r\n        \"value\": \"[{\\\"key\\\":\\\"customer_key1\\\",\\\"value\\\":\\\"customer_value1\\\"},{\\\"key\\\":\\\"customer_key2\\\",\\\"value\\\":\\\"customer_value2\\\"}]\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/gateway/setting",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"gateway",
+								"setting"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Settings (DNS)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"gatewayName\": \"td-egress-gateway\",\r\n    \"settings\": [\r\n        {\r\n        \"name\": \"gateway.fqdn_ip_cache.entry_ttl\",\r\n        \"value\": \"86400\"\r\n        },\r\n        {\r\n        \"name\": \"gateway.fqdn_ip_cache.size\",\r\n        \"value\": \"320000\"\r\n        },\r\n        {\r\n        \"name\": \"gateway.fqdn_ip_cache.update_interval\",\r\n        \"value\": \"3\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/gateway/setting",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"gateway",
+								"setting"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"Azure-Gateway-Egress\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/gateway/status",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"gateway",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Status (Instances)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"aws-egress-gw\",\r\n    \"startTime\": \"2022-09-19T20:50:24Z\",\r\n    \"endTime\": \"2022-09-19T20:55:24Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/gateway/status",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"gateway",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Images",
+			"item": [
+				{
+					"name": "Images",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"common\": {\n        \"acctName\": \"{{acctName}}\",\n        \"source\": \"RESTAPI\",\n        \"clientVersion\": \"Valtix-2022\"\n    },\n    \"csp\": \"AWS\",\n    \"region\": \"af-south-1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/valtix/images/list",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"valtix",
+								"images",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Policy Ruleset",
+			"item": [
+				{
+					"name": "Policy Rules",
+					"item": [
+						{
+							"name": "Update (Add)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Blank Response\", function () {\r",
+											"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"policy_ruleset\",\r\n    \"ruleSet\": [\r\n        {\r\n            \"type\": \"ADD\",\r\n            \"rule\": {\r\n                \"pri\": 5,\r\n                \"proto\": \"\",\r\n                \"name\": \"rule_name4\",\r\n                \"description\": \"rule description\",\r\n                \"destAddressGroupName\": \"any\",\r\n                \"connectionName\": \"TCP-80-443\",\r\n                \"srcAddressGroupName\": \"any\",\r\n                \"action\": \"ALLOW_LOG\"\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"ADD\",\r\n            \"rule\": {\r\n                \"pri\": 6,\r\n                \"proto\": \"\",\r\n                \"name\": \"rule_name5\",\r\n                \"description\": \"rule description\",\r\n                \"destAddressGroupName\": \"any\",\r\n                \"connectionName\": \"TCP-80-443\",\r\n                \"srcAddressGroupName\": \"any\",\r\n                \"action\": \"ALLOW_LOG\"\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"ADD\",\r\n            \"rule\": {\r\n                \"pri\": 7,\r\n                \"proto\": \"\",\r\n                \"name\": \"rule_name6\",\r\n                \"description\": \"rule description\",\r\n                \"destAddressGroupName\": \"any\",\r\n                \"connectionName\": \"TCP-80-443\",\r\n                \"srcAddressGroupName\": \"any\",\r\n                \"action\": \"ALLOW_LOG\"\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"ADD\",\r\n            \"rule\": {\r\n                \"pri\": 8,\r\n                \"proto\": \"\",\r\n                \"name\": \"rule_name7\",\r\n                \"description\": \"rule description\",\r\n                \"destAddressGroupName\": \"any\",\r\n                \"connectionName\": \"TCP-80-443\",\r\n                \"srcAddressGroupName\": \"any\",\r\n                \"action\": \"ALLOW_LOG\"\r\n            }\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/policyruleset/update",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"policyruleset",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update (Update)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Blank Response\", function () {\r",
+											"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"policy_ruleset\",\r\n    \"ruleSet\": [\r\n        {\r\n            \"type\": \"ADD\",\r\n            \"rule\": {\r\n                \"pri\": 3,\r\n                \"destAddressGroupName\": \"internet\"\r\n            }\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/policyruleset/update",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"policyruleset",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update (Delete)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Blank Response\", function () {\r",
+											"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"policy_ruleset\",\r\n    \"ruleSet\": [\r\n        {\r\n            \"type\": \"DELETE\",\r\n            \"rule\": {\r\n                \"id\": 11\r\n            }\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/policyruleset/update",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"policyruleset",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update (Replace)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Blank Response\", function () {\r",
+											"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"policy_ruleset\",\r\n    \"ruleSet\": [\r\n        {\r\n            \"type\": \"DELETE\",\r\n            \"rule\": {\r\n                \"id\": 158,\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"DELETE\",\r\n            \"rule\": {\r\n                \"id\": 159,\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"DELETE\",\r\n            \"rule\": {\r\n                \"id\": 160,\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"DELETE\",\r\n            \"rule\": {\r\n                \"id\": 161,\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"DELETE\",\r\n            \"rule\": {\r\n                \"id\": 162,\r\n            }\r\n        },\r\n       {\r\n            \"type\": \"ADD\",\r\n            \"rule\": {\r\n                \"pri\": 2,\r\n                \"proto\": \"\",\r\n                \"name\": \"rule_name1\",\r\n                \"description\": \"rule description\",\r\n                \"destAddressGroupName\": \"any\",\r\n                \"connectionName\": \"TCP-80-443-new\",\r\n                \"srcAddressGroupName\": \"any\",\r\n                \"action\": \"ALLOW_LOG\"\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"ADD\",\r\n            \"rule\": {\r\n                \"pri\": 3,\r\n                \"proto\": \"\",\r\n                \"name\": \"rule_name2\",\r\n                \"description\": \"rule description\",\r\n                \"destAddressGroupName\": \"any\",\r\n                \"connectionName\": \"TCP-80-443-new\",\r\n                \"srcAddressGroupName\": \"any\",\r\n                \"action\": \"ALLOW_LOG\"\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"ADD\",\r\n            \"rule\": {\r\n                \"pri\": 4,\r\n                \"proto\": \"\",\r\n                \"name\": \"rule_name3\",\r\n                \"description\": \"rule description\",\r\n                \"destAddressGroupName\": \"any\",\r\n                \"connectionName\": \"TCP-80-443-new\",\r\n                \"srcAddressGroupName\": \"any\",\r\n                \"action\": \"ALLOW_LOG\"\r\n            }\r\n        },\r\n        {\r\n            \"type\": \"ADD\",\r\n            \"rule\": {\r\n                \"pri\": 5,\r\n                \"proto\": \"\",\r\n                \"name\": \"rule_name4\",\r\n                \"description\": \"rule description\",\r\n                \"destAddressGroupName\": \"any\",\r\n                \"connectionName\": \"TCP-80-443-new\",\r\n                \"srcAddressGroupName\": \"any\",\r\n                \"action\": \"ALLOW_LOG\"\r\n            }\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/policyruleset/update",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"policyruleset",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Blank Response\", function () {\r",
+											"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"policy_ruleset\",\r\n    \"rulePriorities\": [\r\n        1,\r\n        2\r\n    ],\r\n    \"ruleIds\": [\r\n        27\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/policyrule/get",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"policyrule",
+										"get"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get New Id\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(typeof jsonData.id).to.eql(\"number\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"policy_ruleset\",\r\n    \"description\": \"Description of policy_ruleset\",\r\n    \"healthCheckPort\": 65534\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/policyruleset/create",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policyruleset",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Blank Response\", function () {\r",
+									"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"policy_ruleset\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/policyruleset/delete",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policyruleset",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get Id\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(typeof jsonData.id).to.eql(\"number\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/policyruleset/list",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policyruleset",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get Id\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(typeof jsonData.id).to.eql(\"number\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"policy_ruleset\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/policyruleset/get",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policyruleset",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Blank Response\", function () {\r",
+									"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"id\": \"{{id}}\",\r\n    \"name\": \"policy_ruleset\",\r\n    \"description\": \"Updated Description of policy_ruleset\",\r\n    \"healthCheckPort\": 65534\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/policyruleset/update",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policyruleset",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profiles",
+			"item": [
+				{
+					"name": "FQDN",
+					"item": [
+						{
+							"name": "Create",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Get New Id\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(typeof jsonData.id).to.eql(\"number\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"ucRequest\": {\r\n        \"name\": \"fqdn-profile\",\r\n        \"description\": \"\",\r\n        \"fqdnFilterProfile\": {\r\n            \"profileProperties\": {\r\n                \"fqdnFilterList\": [\r\n                    {\r\n                        \"priority\": 1,\r\n                        \"fqdnList\": [\r\n                            \"public.ecr.aws\",\r\n                            \"ocsp.verisign.com\",\r\n                            \"ocsp.sca2a.amazontrust.com\",\r\n                            \"prod.telemetry.tableausoftware.com\",\r\n                            \"dci.sophosupd.com\",\r\n                            \"ocsp.sca4a.amazontrust.com\",\r\n                            \"ocsp.rootg2.amazontrust.com\",\r\n                            \"www.public-trust.com\",\r\n                            \"pypi.python.org\",\r\n                            \"security.ubuntu.com\",\r\n                            \"download.opensuse.org\",\r\n                            \".*.windowsupdate.com\",\r\n                            \".*.delivery.mp.microsoft.com\",\r\n                            \"emdl.ws.microsoft.com\",\r\n                            \"adl.windows.com\",\r\n                            \"files.pythonhosted.org\",\r\n                            \".*.sci.gsfc.nasa.gov\",\r\n                            \"ocsp.sca1a.amazontrust.com\",\r\n                            \"s.ss2.us\",\r\n                            \"neowms.sci.gsfc.nasa.gov\",\r\n                            \"mirror.centos.org\",\r\n                            \"neo.gsfc.nasa.gov\",\r\n                            \".*.centrify.com\",\r\n                            \"ocsp.entrust.net\",\r\n                            \"crl.rootca1.amazontrust.com\",\r\n                            \"crt.sca3a.amazontrust.com\",\r\n                            \"crl.sca1b.amazontrust.com\",\r\n                            \".*windowsupdate.com\",\r\n                            \".*windowsupdate.microsoft.com\",\r\n                            \"yum.datadoghq.com\",\r\n                            \"pypi.org\",\r\n                            \"ocsp.digicert.com\",\r\n                            \"privacy-policy.truste.com\",\r\n                            \"ocsp.sca3a.amazontrust.com\",\r\n                            \"ocsp.sca0a.amazontrust.com\",\r\n                            \"ocsp.sca1b.amazontrust.com\",\r\n                            \"ocsp.rootca1.amazontrust.com\",\r\n                            \"crl.rootg2.amazontrust.com\",\r\n                            \"crt.sca2a.amazontrust.com\",\r\n                            \"crt.sca4a.amazontrust.com\",\r\n                            \"download.fedoraproject.org\",\r\n                            \"crt.sca1a.amazontrust.com\",\r\n                            \"crt.rootca1.amazontrust.com\",\r\n                            \"crt.sca0a.amazontrust.com\",\r\n                            \"crt.sca1b.amazontrust.com\",\r\n                            \".*update.microsoft.com\",\r\n                            \".*.gsfc.nasa.gov\",\r\n                            \"go.microsoft.com\",\r\n                            \"awsartifact.labsteradata.net\",\r\n                            \"launchpad.net\",\r\n                            \"ocsp.godaddy.com\",\r\n                            \"keyserver.ubuntu.com\",\r\n                            \".*.archive.ubuntu.com\",\r\n                            \".*amazonaws.com\"\r\n                        ],\r\n                        \"categories\": [\r\n                        ],\r\n                        \"policy\": {\r\n                            \"policy\": \"ALLOW_LOG\",\r\n                            \"name\": \"Allow Log\"\r\n                        },\r\n                        \"decryptException\": false\r\n                    }\r\n                ],\r\n                \"defaultFQDNFilter\": {\r\n                    \"fqdn\": \".*\",\r\n                    \"policy\": {\r\n                        \"name\": \"Deny No log\",\r\n                        \"policy\": \"DENY_NOLOG\"\r\n                    },\r\n                    \"decryptException\": false\r\n                },\r\n                \"defaultUncategorizedFQDNFilter\": {\r\n                    \"categories\": [\r\n                        {\r\n                            \"vendor\": \"BRIGHTCLOUD\",\r\n                            \"categoryID\": \"0\"\r\n                        }\r\n                    ],\r\n                    \"policy\": {\r\n                        \"name\": \"Deny log\",\r\n                        \"policy\": \"DENY\"\r\n                    },\r\n                    \"decryptException\": false\r\n                },\r\n                \"noFqdnDeny\": false\r\n            }\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/fqdnfilterprofile/create",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fqdnfilterprofile",
+										"create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"common\": {\r\n    \"acctName\": \"{{acctName}}\",\r\n    \"source\": \"RESTAPI\",\r\n    \"clientVersion\": \"Valtix-2022\"\r\n  },\r\n  \"ucRequest\" {\r\n    \"name\": \"aws-fqdn-443\",\r\n    \"description\": \"\",\r\n    \"fqdnFilterProfile\": {\r\n      \"profileProperties\": {\r\n        \"fqdnFilterList\": [\r\n          {\r\n            \"policy\": {\r\n              \"policy\": \"ALLOW_LOG\",\r\n              \"name\": \"Allow Log\"\r\n            },\r\n            \"priority\": 1,\r\n            \"fqdnList\": [\r\n              \".*.download.windowsupdate.com\",\r\n              \".*.blob.core.windows.net\",\r\n              \".*.documents.azure.com\",\r\n              \"files.pythonhosted.org\",\r\n              \"crt.sca4a.amazontrust.com\",\r\n              \"crl.rootg2.amazontrust.com\",\r\n              \".*.azurecr.io\",\r\n              \".*.datadoghq.com\",\r\n              \"edge.centrify.com\",\r\n              \"keyserver.ubuntu.com\",\r\n              \"ppa.launchpad.net\",\r\n              \"crt.sca2a.amazontrust.com\",\r\n              \".*.windowsupdate.microsoft.com\",\r\n              \".*.wdcp.microsoft.com\",\r\n              \".*.wdcpalt.microsoft.com\",\r\n              \"validation-v2.sls.microsoft.com\",\r\n              \".*.gsfc.nasa.gov\",\r\n              \".*.core.windows.net\",\r\n              \".*.gcp.vantage.teradata.com\",\r\n              \"deb.nodesource.com\",\r\n              \"grafana.com\",\r\n              \"launchpad.net\",\r\n              \"crt.sca1a.amazontrust.com\",\r\n              \".*.centrify.com\",\r\n              \".*.gcp.terdatacloud.io\",\r\n              \"sdds3.sophosupd.net\",\r\n              \"login-dev.qacustomer.teradata.com\",\r\n              \"download.microsoft.com\",\r\n              \".*.mp.microsoft.com\",\r\n              \"settings-win.data.microsoft.com\",\r\n              \"login.live.com\",\r\n              \"prod.iam.intellicloud.teradata.com\",\r\n              \"preprod.iam.teradatacloud.io\",\r\n              \"twserviceconnect.teradata.com\",\r\n              \"serviceconnect-devext.teradata.com\",\r\n              \"awsartifact.labsteradata.net\",\r\n              \"api.intellicloud.teradata.com\",\r\n              \"crl3.digicert.com\",\r\n              \"draas.teradatacloud.io\",\r\n              \"conda-forge.org\",\r\n              \"artifactory.teradatacloud.com\",\r\n              \"api.streams.services.cloud.teradata.com\",\r\n              \"artportal.teradata.ws\",\r\n              \".*.my.centrify.net\",\r\n              \".*.wd.microsoft.com\",\r\n              \".*.windowsupdate.com\",\r\n              \"dl.delivery.mp.microsoft.com\",\r\n              \"download.windowsupdate.com\",\r\n              \"fe3.delivery.mp.microsoft.com\",\r\n              \"go.microsoft.com\",\r\n              \"dci.sophosupd.net\",\r\n              \"login.customer.teradata.com\",\r\n              \"d1.sophosupd.com\",\r\n              \".*.archive.ubuntu.com\",\r\n              \"download.mozilla.org\",\r\n              \"d3.sophosupd.com\",\r\n              \"neo.gsfc.nasa.gov\",\r\n              \".*.applicationinsights.io\",\r\n              \"raw.githubusercontent.com\"\r\n            ]\r\n          },\r\n          {\r\n            \"policy\": {\r\n              \"policy\": \"ALLOW_LOG\",\r\n              \"name\": \"Allow Log\"\r\n            },\r\n            \"priority\": 2,\r\n            \"fqdnList\": [\r\n              \"public-prod.sre.cloud.teradata.com\",\r\n              \"api.mapbox.com\",\r\n              \"install.service-now.com\",\r\n              \"d2.sophosupd.com\",\r\n              \"pam-public.preprod.cms.cloud.teradata.com\",\r\n              \".*.agentsvc.azure-automation.net\",\r\n              \".*.loganalytics.io\",\r\n              \"dev.iam.teradatacloud.io\",\r\n              \"galop.connectors.tableau.com\",\r\n              \"ocsp.rootg2.amazontrust.com\",\r\n              \"ocsp.sca4a.amazontrust.com\",\r\n              \".*.vault.azure.net\",\r\n              \"ocsp.sca2a.amazontrust.com\",\r\n              \".*.sophos.com\",\r\n              \"mapsconfig.tableau.com\",\r\n              \"ocsp.sca1a.amazontrust.com\",\r\n              \".*.migration.teradatacloud.io\",\r\n              \"pam.preprod.cms.cloud.teradata.com\",\r\n              \"download.opensuse.org\",\r\n              \"coordinator-manager.streams.services.cloud.teradata.com\",\r\n              \".*.gateway.cloud.teradata.com\",\r\n              \"support.teradata.com\",\r\n              \"api.lacework.net\",\r\n              \"preprod.api.teradatacloud.io\",\r\n              \"crl.sca1b.amazontrust.com\",\r\n              \"4.sophosxl.net\",\r\n              \".*.service-now.com\",\r\n              \".*.azureserviceprofiler.net\",\r\n              \".*.docker.io\",\r\n              \"email.us-west-2.amazonaws.com\",\r\n              \"crt.sca3a.amazontrust.com\",\r\n              \"atr.licensing.tableau.com\",\r\n              \"crl.rootca1.amazontrust.com\",\r\n              \".*.azure.com\",\r\n              \".*.googleapis.com\",\r\n              \"dl.yarnpkg.com\",\r\n              \"k8s.gcr.io\",\r\n              \"packages.microsoft.com\",\r\n              \"crt.sca1b.amazontrust.com\",\r\n              \"gcr.io\",\r\n              \"crt.sca0a.amazontrust.com\",\r\n              \"www.mozilla.org\",\r\n              \"draas.intellicloud.teradata.com\",\r\n              \".*.gcp.teradatacloud.io\",\r\n              \".*.intellicloud.teradata.com\",\r\n              \"licensing.tableau.com\",\r\n              \"dci.sophosupd.com\",\r\n              \"global.handler.control.monitor.azure.com\",\r\n              \"s.ss2.us\",\r\n              \"prod.telemetry.tableausoftware.com\",\r\n              \"files.teradatacloud.com\",\r\n              \"api.gcp.vantage.teradata.com\",\r\n              \"cpan.r-project.org\",\r\n              \"aaa3548.my.centrify-kibble.net\",\r\n              \"cloud.tenable.com\",\r\n              \".*.customer.migration.teradatacloud.io\",\r\n              \".*.sci.gsfc.nasa.gov\",\r\n              \"public.ecr.aws\",\r\n              \"teradatacs.service-now.com\",\r\n              \"pas.windows.net\"\r\n            ]\r\n          },\r\n          {\r\n            \"policy\": {\r\n              \"policy\": \"ALLOW_LOG\",\r\n              \"name\": \"Allow Log\"\r\n            },\r\n            \"priority\": 3,\r\n            \"fqdnList\": [\r\n              \"management.azure.com\",\r\n              \".*.his.arc.azure.com\",\r\n              \".*.guestconfiguration.azure.com\",\r\n              \"guestnotificationservice.azure.com\",\r\n              \".*.guestnotificationservice.azure.com\",\r\n              \"azgn.*.servicebus.windows.net\",\r\n              \"archive.ubuntu.com\",\r\n              \"aws.amazon.com\",\r\n              \"download-installer.cdn.mozilla.net\",\r\n              \"login-stage.cloud.teradata.com\",\r\n              \"d3.sophosupd.net\",\r\n              \"serviceconnect.teradata.com\",\r\n              \".*.sophosupd.com\",\r\n              \"d2.sophosupd.net\",\r\n              \".*.applicationinsights.microsoft.com\",\r\n              \"production.cloudflare.docker.com\",\r\n              \"security.ubuntu.com\",\r\n              \"t1.sophosupd.com\",\r\n              \"quay.io\",\r\n              \".*.amazonaws.com\",\r\n              \"crt.rootca1.amazontrust.com\",\r\n              \"d1.sophosupd.net\",\r\n              \"pypi.python.org\",\r\n              \"teradatasensorapi.atp.azure.com\",\r\n              \"ocsp.sca0a.amazontrust.com\",\r\n              \".*.update.microsoft.com\",\r\n              \"ocsp.rootca1.amazontrust.com\",\r\n              \"ocsp.sca3a.amazontrust.com\",\r\n              \"ocsp.sca1b.amazontrust.com\",\r\n              \".*.nexmo.com\",\r\n              \"login.qacustomer.teradata.com\",\r\n              \".*.microsoftonline.com\",\r\n              \"pam.cms.cloud.teradata.com\",\r\n              \"westus2.handler.control.monitor.azure.com\",\r\n              \"eastus.handler.control.monitor.azure.com\",\r\n              \"report-issue.tableau.com\",\r\n              \".*.migration.teradata.com\",\r\n              \"pam-public.cms.cloud.teradata.com\",\r\n              \"4783e89a-6a84-44f5-9f48-e6d09aa28c80.ods.opinsights.azure.com\",\r\n              \"8365b219-491e-4525-9410-407cc89628ee.ods.opinsights.azure.com\",\r\n              \"aka.ms\",\r\n              \"login.windows.net\",\r\n              \"login.microsoftonline.com\",\r\n              \"public-preprod.sre.cloud.teradata.com\",\r\n              \"aus5.mozilla.org\",\r\n              \".*.ecr.aws\",\r\n              \".*.streams.teradatacloud.io\",\r\n              \"cran.r-project.org\",\r\n              \"www.trials.teradata.com\",\r\n              \"pam.dev.cms.cloud.teradata.com\",\r\n              \".*.cloudfront.net\",\r\n              \"coordinator-manager.preprod.streams.teradatacloud.io\",\r\n              \"sensor.cloud.tenable.com\",\r\n              \"plugins.nessus.org\",\r\n              \"teradata-trials.auth0.com\",\r\n              \"vantage-trial.auth0.com\",\r\n              \"pypi.org\"\r\n            ]\r\n          }\r\n        ],\r\n        \"defaultFQDNFilter\": {\r\n          \"fqdn\": \".*\",\r\n          \"policy\": {\r\n            \"policy\": \"DENY\",\r\n            \"name\": \"Deny Log\"\r\n          }\r\n        },\r\n        \"noFqdnDeny\": true,\r\n        \"defaultUncategorizedFQDNFilter\": {\r\n          \"policy\": {\r\n            \"policy\": \"DENY\",\r\n            \"name\": \"Deny Log\"\r\n          },\r\n          \"categories\": [\r\n            {\r\n              \"vendor\": \"BRIGHTCLOUD\",\r\n              \"categoryID\": \"0\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    }\r\n  }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/api/v1/fqdnfilterprofile/create",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fqdnfilterprofile",
+												"create"
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Create",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"ucRequest\": {\r\n        \"name\": \"443-Global-AWS\",\r\n        \"description\": \"\",\r\n        \"fqdnFilterProfile\": {\r\n            \"profileProperties\": {\r\n                \"fqdnFilterList\": [\r\n                ],\r\n                \"defaultFQDNFilter\": {\r\n                    \"fqdn\": \".*\",\r\n                    \"policy\": {\r\n                        \"name\": \"Deny No log\",\r\n                        \"policy\": \"DENY_NOLOG\"\r\n                    },\r\n                    \"decryptException\": false\r\n                },\r\n                \"defaultUncategorizedFQDNFilter\": {\r\n                    \"categories\": [\r\n                        {\r\n                            \"vendor\": \"BRIGHTCLOUD\",\r\n                            \"categoryID\": \"0\"\r\n                        }\r\n                    ],\r\n                    \"policy\": {\r\n                        \"name\": \"Deny log\",\r\n                        \"policy\": \"DENY\"\r\n                    },\r\n                    \"decryptException\": false\r\n                },\r\n                \"noFqdnDeny\": false\r\n            }\r\n        }\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/api/v1/fqdnfilterprofile/create",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fqdnfilterprofile",
+												"create"
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Create",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"ucRequest\": {\r\n        \"name\": \"fqdn_profile\",\r\n        \"description\": \"\",\r\n        \"fqdnFilterProfile\": {\r\n            \"profileProperties\": {\r\n                \"fqdnFilterList\": [\r\n                    {\r\n                        \"priority\": 1,\r\n                        \"fqdnList\": [],\r\n                        \"categories\": [\r\n                            {\r\n                                \"vendor\": \"BRIGHTCLOUD\",\r\n                                \"categoryID\": \"5\"\r\n                            },\r\n                            {\r\n                                \"vendor\": \"BRIGHTCLOUD\",\r\n                                \"categoryID\": \"6\"\r\n                            }\r\n                        ],\r\n                        \"policy\": {\r\n                            \"policy\": \"ALLOW_LOG\",\r\n                            \"name\": \"Allow Log\"\r\n                        },\r\n                        \"decryptException\": false\r\n                    }\r\n                ],\r\n                \"defaultFQDNFilter\": {\r\n                    \"fqdn\": \".*\",\r\n                    \"policy\": {\r\n                        \"name\": \"Deny No log\",\r\n                        \"policy\": \"DENY_NOLOG\"\r\n                    },\r\n                    \"decryptException\": false\r\n                },\r\n                \"defaultUncategorizedFQDNFilter\": {\r\n                    \"categories\": [\r\n                        {\r\n                            \"vendor\": \"BRIGHTCLOUD\",\r\n                            \"categoryID\": \"0\"\r\n                        }\r\n                    ],\r\n                    \"policy\": {\r\n                        \"name\": \"Deny log\",\r\n                        \"policy\": \"DENY\"\r\n                    },\r\n                    \"decryptException\": false\r\n                },\r\n                \"noFqdnDeny\": false\r\n            }\r\n        }\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/api/v1/fqdnfilterprofile/create",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fqdnfilterprofile",
+												"create"
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Blank Response\", function () {\r",
+											"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"fqdn-profile\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/fqdnfilterprofile/delete",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fqdnfilterprofile",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Get Id\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(typeof jsonData.fqdnFilterProfile.header.id).to.eql(\"number\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/fqdnfilterprofile/list",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fqdnfilterprofile",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Get Id\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(typeof jsonData.fqdnFilterProfile.header.id).to.eql(\"number\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"fqdn-profile\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/fqdnfilterprofile/get",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fqdnfilterprofile",
+										"get"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Blank Response\", function () {\r",
+											"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"common\": {\r\n    \"acctName\": \"{{acctName}}\",\r\n    \"source\": \"RESTAPI\",\r\n    \"clientVersion\": \"Valtix-2022\"\r\n  },\r\n  \"ucRequest\": {\r\n    \"id\": 91,\r\n    \"name\": \"fqdn-profile\",\r\n    \"description\": \"\",\r\n    \"fqdnFilterProfile\": {\r\n      \"profileProperties\": {\r\n        \"noFqdnDeny\": true,\r\n        \"fqdnFilterList\": [\r\n          {\r\n            \"policy\": {\r\n              \"policy\": \"ALLOW_LOG\",\r\n              \"name\": \"Allow Log\"\r\n            },\r\n            \"priority\": 1,\r\n            \"fqdnList\": [\r\n              \".*.download.windowsupdate.com\",\r\n              \".*.blob.core.windows.net\",\r\n              \".*.documents.azure.com\",\r\n              \"files.pythonhosted.org\",\r\n              \"crt.sca4a.amazontrust.com\",\r\n              \"crl.rootg2.amazontrust.com\",\r\n              \".*.azurecr.io\",\r\n              \".*.datadoghq.com\",\r\n              \"edge.centrify.com\",\r\n              \"keyserver.ubuntu.com\",\r\n              \"ppa.launchpad.net\",\r\n              \"crt.sca2a.amazontrust.com\",\r\n              \".*.windowsupdate.microsoft.com\",\r\n              \".*.wdcp.microsoft.com\",\r\n              \".*.wdcpalt.microsoft.com\",\r\n              \"validation-v2.sls.microsoft.com\",\r\n              \".*.gsfc.nasa.gov\",\r\n              \".*.core.windows.net\",\r\n              \".*.gcp.vantage.teradata.com\",\r\n              \"deb.nodesource.com\",\r\n              \"grafana.com\",\r\n              \"launchpad.net\",\r\n              \"crt.sca1a.amazontrust.com\",\r\n              \".*.centrify.com\",\r\n              \".*.gcp.terdatacloud.io\",\r\n              \"sdds3.sophosupd.net\",\r\n              \"login-dev.qacustomer.teradata.com\",\r\n              \"download.microsoft.com\",\r\n              \".*.mp.microsoft.com\",\r\n              \"settings-win.data.microsoft.com\",\r\n              \"login.live.com\",\r\n              \"prod.iam.intellicloud.teradata.com\",\r\n              \"preprod.iam.teradatacloud.io\",\r\n              \"twserviceconnect.teradata.com\",\r\n              \"serviceconnect-devext.teradata.com\",\r\n              \"awsartifact.labsteradata.net\",\r\n              \"api.intellicloud.teradata.com\",\r\n              \"crl3.digicert.com\",\r\n              \"draas.teradatacloud.io\",\r\n              \"conda-forge.org\",\r\n              \"artifactory.teradatacloud.com\",\r\n              \"api.streams.services.cloud.teradata.com\",\r\n              \"artportal.teradata.ws\",\r\n              \".*.my.centrify.net\",\r\n              \".*.wd.microsoft.com\",\r\n              \".*.windowsupdate.com\",\r\n              \"dl.delivery.mp.microsoft.com\",\r\n              \"download.windowsupdate.com\",\r\n              \"fe3.delivery.mp.microsoft.com\",\r\n              \"go.microsoft.com\",\r\n              \"dci.sophosupd.net\",\r\n              \"login.customer.teradata.com\",\r\n              \"d1.sophosupd.com\",\r\n              \".*.archive.ubuntu.com\",\r\n              \"download.mozilla.org\",\r\n              \"d3.sophosupd.com\",\r\n              \"neo.gsfc.nasa.gov\",\r\n              \".*.applicationinsights.io\",\r\n              \"raw.githubusercontent.com\"\r\n            ]\r\n          }\r\n        ],\r\n        \"defaultFQDNFilter\": {\r\n          \"fqdn\": \".*\",\r\n          \"policy\": {\r\n            \"policy\": \"DENY\",\r\n            \"name\": \"Deny Log\"\r\n          }\r\n        },\r\n        \"defaultUncategorizedFQDNFilter\": {\r\n          \"policy\": {\r\n            \"policy\": \"DENY\",\r\n            \"name\": \"Deny Log\"\r\n          },\r\n          \"categories\": [\r\n          ]\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/fqdnfilterprofile/update",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fqdnfilterprofile",
+										"update"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"ucRequest\": {\r\n        \"id\": 91,\r\n        \"name\": \"443-Global-AWS\",\r\n        \"fqdnFilterProfile\": {\r\n            \"profileProperties\": {\r\n                \"fqdnFilterList\": [\r\n                ],\r\n                \"defaultFQDNFilter\": {\r\n                    \"fqdn\": \".*\",\r\n                    \"policy\": {\r\n                        \"policy\": \"DENY\",\r\n                        \"name\": \"Deny log\"\r\n                    }\r\n                },\r\n                \"defaultUncategorizedFQDNFilter\": {\r\n                    \"policy\": {\r\n                        \"policy\": \"DENY\",\r\n                        \"name\": \"Deny log\"\r\n                    },\r\n                    \"categories\": [\r\n                        {\r\n                            \"vendor\": \"BRIGHTCLOUD\",\r\n                            \"categoryID\": \"0\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"noFqdnDeny\": false\r\n            }\r\n        }\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/api/v1/fqdnfilterprofile/update",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fqdnfilterprofile",
+												"update"
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Update",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"common\": {\r\n    \"acctName\": \"{{acctName}}\",\r\n    \"source\": \"RESTAPI\",\r\n    \"clientVersion\": \"Valtix-2022\"\r\n  },\r\n  \"ucRequest\" {\r\n    \"id\": 91,\r\n    \"name\": \"aws-fqdn-443\",\r\n    \"description\": \"\",\r\n    \"fqdnFilterProfile\": {\r\n      \"profileProperties\": {\r\n        \"fqdnFilterList\": [\r\n          {\r\n            \"policy\": {\r\n              \"policy\": \"ALLOW_LOG\",\r\n              \"name\": \"Allow Log\"\r\n            },\r\n            \"priority\": 1,\r\n            \"fqdnList\": [\r\n              \".*.download.windowsupdate.com\",\r\n              \".*.blob.core.windows.net\",\r\n              \".*.documents.azure.com\",\r\n              \"files.pythonhosted.org\",\r\n              \"crt.sca4a.amazontrust.com\",\r\n              \"crl.rootg2.amazontrust.com\",\r\n              \".*.azurecr.io\",\r\n              \".*.datadoghq.com\",\r\n              \"edge.centrify.com\",\r\n              \"keyserver.ubuntu.com\",\r\n              \"ppa.launchpad.net\",\r\n              \"crt.sca2a.amazontrust.com\",\r\n              \".*.windowsupdate.microsoft.com\",\r\n              \".*.wdcp.microsoft.com\",\r\n              \".*.wdcpalt.microsoft.com\",\r\n              \"validation-v2.sls.microsoft.com\",\r\n              \".*.gsfc.nasa.gov\",\r\n              \".*.core.windows.net\",\r\n              \".*.gcp.vantage.teradata.com\",\r\n              \"deb.nodesource.com\",\r\n              \"grafana.com\",\r\n              \"launchpad.net\",\r\n              \"crt.sca1a.amazontrust.com\",\r\n              \".*.centrify.com\",\r\n              \".*.gcp.terdatacloud.io\",\r\n              \"sdds3.sophosupd.net\",\r\n              \"login-dev.qacustomer.teradata.com\",\r\n              \"download.microsoft.com\",\r\n              \".*.mp.microsoft.com\",\r\n              \"settings-win.data.microsoft.com\",\r\n              \"login.live.com\",\r\n              \"prod.iam.intellicloud.teradata.com\",\r\n              \"preprod.iam.teradatacloud.io\",\r\n              \"twserviceconnect.teradata.com\",\r\n              \"serviceconnect-devext.teradata.com\",\r\n              \"awsartifact.labsteradata.net\",\r\n              \"api.intellicloud.teradata.com\",\r\n              \"crl3.digicert.com\",\r\n              \"draas.teradatacloud.io\",\r\n              \"conda-forge.org\",\r\n              \"artifactory.teradatacloud.com\",\r\n              \"api.streams.services.cloud.teradata.com\",\r\n              \"artportal.teradata.ws\",\r\n              \".*.my.centrify.net\",\r\n              \".*.wd.microsoft.com\",\r\n              \".*.windowsupdate.com\",\r\n              \"dl.delivery.mp.microsoft.com\",\r\n              \"download.windowsupdate.com\",\r\n              \"fe3.delivery.mp.microsoft.com\",\r\n              \"go.microsoft.com\",\r\n              \"dci.sophosupd.net\",\r\n              \"login.customer.teradata.com\",\r\n              \"d1.sophosupd.com\",\r\n              \".*.archive.ubuntu.com\",\r\n              \"download.mozilla.org\",\r\n              \"d3.sophosupd.com\",\r\n              \"neo.gsfc.nasa.gov\",\r\n              \".*.applicationinsights.io\",\r\n              \"raw.githubusercontent.com\"\r\n            ]\r\n          },\r\n          {\r\n            \"policy\": {\r\n              \"policy\": \"ALLOW_LOG\",\r\n              \"name\": \"Allow Log\"\r\n            },\r\n            \"priority\": 2,\r\n            \"fqdnList\": [\r\n              \"public-prod.sre.cloud.teradata.com\",\r\n              \"api.mapbox.com\",\r\n              \"install.service-now.com\",\r\n              \"d2.sophosupd.com\",\r\n              \"pam-public.preprod.cms.cloud.teradata.com\",\r\n              \".*.agentsvc.azure-automation.net\",\r\n              \".*.loganalytics.io\",\r\n              \"dev.iam.teradatacloud.io\",\r\n              \"galop.connectors.tableau.com\",\r\n              \"ocsp.rootg2.amazontrust.com\",\r\n              \"ocsp.sca4a.amazontrust.com\",\r\n              \".*.vault.azure.net\",\r\n              \"ocsp.sca2a.amazontrust.com\",\r\n              \".*.sophos.com\",\r\n              \"mapsconfig.tableau.com\",\r\n              \"ocsp.sca1a.amazontrust.com\",\r\n              \".*.migration.teradatacloud.io\",\r\n              \"pam.preprod.cms.cloud.teradata.com\",\r\n              \"download.opensuse.org\",\r\n              \"coordinator-manager.streams.services.cloud.teradata.com\",\r\n              \".*.gateway.cloud.teradata.com\",\r\n              \"support.teradata.com\",\r\n              \"api.lacework.net\",\r\n              \"preprod.api.teradatacloud.io\",\r\n              \"crl.sca1b.amazontrust.com\",\r\n              \"4.sophosxl.net\",\r\n              \".*.service-now.com\",\r\n              \".*.azureserviceprofiler.net\",\r\n              \".*.docker.io\",\r\n              \"email.us-west-2.amazonaws.com\",\r\n              \"crt.sca3a.amazontrust.com\",\r\n              \"atr.licensing.tableau.com\",\r\n              \"crl.rootca1.amazontrust.com\",\r\n              \".*.azure.com\",\r\n              \".*.googleapis.com\",\r\n              \"dl.yarnpkg.com\",\r\n              \"k8s.gcr.io\",\r\n              \"packages.microsoft.com\",\r\n              \"crt.sca1b.amazontrust.com\",\r\n              \"gcr.io\",\r\n              \"crt.sca0a.amazontrust.com\",\r\n              \"www.mozilla.org\",\r\n              \"draas.intellicloud.teradata.com\",\r\n              \".*.gcp.teradatacloud.io\",\r\n              \".*.intellicloud.teradata.com\",\r\n              \"licensing.tableau.com\",\r\n              \"dci.sophosupd.com\",\r\n              \"global.handler.control.monitor.azure.com\",\r\n              \"s.ss2.us\",\r\n              \"prod.telemetry.tableausoftware.com\",\r\n              \"files.teradatacloud.com\",\r\n              \"api.gcp.vantage.teradata.com\",\r\n              \"cpan.r-project.org\",\r\n              \"aaa3548.my.centrify-kibble.net\",\r\n              \"cloud.tenable.com\",\r\n              \".*.customer.migration.teradatacloud.io\",\r\n              \".*.sci.gsfc.nasa.gov\",\r\n              \"public.ecr.aws\",\r\n              \"teradatacs.service-now.com\",\r\n              \"pas.windows.net\"\r\n            ]\r\n          },\r\n          {\r\n            \"policy\": {\r\n              \"policy\": \"ALLOW_LOG\",\r\n              \"name\": \"Allow Log\"\r\n            },\r\n            \"priority\": 3,\r\n            \"fqdnList\": [\r\n              \"management.azure.com\",\r\n              \".*.his.arc.azure.com\",\r\n              \".*.guestconfiguration.azure.com\",\r\n              \"guestnotificationservice.azure.com\",\r\n              \".*.guestnotificationservice.azure.com\",\r\n              \"azgn.*.servicebus.windows.net\",\r\n              \"archive.ubuntu.com\",\r\n              \"aws.amazon.com\",\r\n              \"download-installer.cdn.mozilla.net\",\r\n              \"login-stage.cloud.teradata.com\",\r\n              \"d3.sophosupd.net\",\r\n              \"serviceconnect.teradata.com\",\r\n              \".*.sophosupd.com\",\r\n              \"d2.sophosupd.net\",\r\n              \".*.applicationinsights.microsoft.com\",\r\n              \"production.cloudflare.docker.com\",\r\n              \"security.ubuntu.com\",\r\n              \"t1.sophosupd.com\",\r\n              \"quay.io\",\r\n              \".*.amazonaws.com\",\r\n              \"crt.rootca1.amazontrust.com\",\r\n              \"d1.sophosupd.net\",\r\n              \"pypi.python.org\",\r\n              \"teradatasensorapi.atp.azure.com\",\r\n              \"ocsp.sca0a.amazontrust.com\",\r\n              \".*.update.microsoft.com\",\r\n              \"ocsp.rootca1.amazontrust.com\",\r\n              \"ocsp.sca3a.amazontrust.com\",\r\n              \"ocsp.sca1b.amazontrust.com\",\r\n              \".*.nexmo.com\",\r\n              \"login.qacustomer.teradata.com\",\r\n              \".*.microsoftonline.com\",\r\n              \"pam.cms.cloud.teradata.com\",\r\n              \"westus2.handler.control.monitor.azure.com\",\r\n              \"eastus.handler.control.monitor.azure.com\",\r\n              \"report-issue.tableau.com\",\r\n              \".*.migration.teradata.com\",\r\n              \"pam-public.cms.cloud.teradata.com\",\r\n              \"4783e89a-6a84-44f5-9f48-e6d09aa28c80.ods.opinsights.azure.com\",\r\n              \"8365b219-491e-4525-9410-407cc89628ee.ods.opinsights.azure.com\",\r\n              \"aka.ms\",\r\n              \"login.windows.net\",\r\n              \"login.microsoftonline.com\",\r\n              \"public-preprod.sre.cloud.teradata.com\",\r\n              \"aus5.mozilla.org\",\r\n              \".*.ecr.aws\",\r\n              \".*.streams.teradatacloud.io\",\r\n              \"cran.r-project.org\",\r\n              \"www.trials.teradata.com\",\r\n              \"pam.dev.cms.cloud.teradata.com\",\r\n              \".*.cloudfront.net\",\r\n              \"coordinator-manager.preprod.streams.teradatacloud.io\",\r\n              \"sensor.cloud.tenable.com\",\r\n              \"plugins.nessus.org\",\r\n              \"teradata-trials.auth0.com\",\r\n              \"vantage-trial.auth0.com\",\r\n              \"pypi.org\"\r\n            ]\r\n          }\r\n        ],\r\n        \"defaultFQDNFilter\": {\r\n          \"fqdn\": \".*\",\r\n          \"policy\": {\r\n            \"policy\": \"DENY\",\r\n            \"name\": \"Deny Log\"\r\n          }\r\n        },\r\n        \"noFqdnDeny\": true,\r\n        \"defaultUncategorizedFQDNFilter\": {\r\n          \"policy\": {\r\n            \"policy\": \"DENY\",\r\n            \"name\": \"Deny Log\"\r\n          },\r\n          \"categories\": [\r\n            {\r\n              \"vendor\": \"BRIGHTCLOUD\",\r\n              \"categoryID\": \"0\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    }\r\n  }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/api/v1/fqdnfilterprofile/update",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fqdnfilterprofile",
+												"update"
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Update",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"ucRequest\": {\r\n        \"id\": 95,\r\n        \"name\": \"fqdn_profile1\",\r\n        \"fqdnFilterProfile\": {\r\n            \"profileProperties\": {\r\n                \"fqdnFilterList\": [\r\n                    {\r\n                        \"policy\": {\r\n                            \"policy\": \"ALLOW_LOG\",\r\n                            \"name\": \"Allow Log\"\r\n                        },\r\n                        \"priority\": 1,\r\n                        \"categories\": [\r\n                            {\r\n                                \"vendor\": \"BRIGHTCLOUD\",\r\n                                \"categoryID\": \"5\"\r\n                            },\r\n                            {\r\n                                \"vendor\": \"BRIGHTCLOUD\",\r\n                                \"categoryID\": \"6\"\r\n                            }\r\n                        ],\r\n                        \"decryptException\": false,\r\n                        \"fqdnList\": [\r\n                            \"someurl1.com\",\r\n                            \"someurl2.com\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"defaultFQDNFilter\": {\r\n                    \"fqdn\": \".*\",\r\n                    \"policy\": {\r\n                        \"policy\": \"DENY_NOLOG\",\r\n                        \"name\": \"Deny No log\"\r\n                    }\r\n                },\r\n                \"defaultUncategorizedFQDNFilter\": {\r\n                    \"policy\": {\r\n                        \"policy\": \"DENY\",\r\n                        \"name\": \"Deny log\"\r\n                    },\r\n                    \"categories\": [\r\n                        {\r\n                            \"vendor\": \"BRIGHTCLOUD\",\r\n                            \"categoryID\": \"0\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"noFqdnDeny\": false\r\n            }\r\n        }\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/api/v1/fqdnfilterprofile/update",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fqdnfilterprofile",
+												"update"
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "NTP",
+					"item": [
+						{
+							"name": "Create",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Get New Id\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(typeof jsonData.id).to.eql(\"number\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    },\r\n    \"ucRequest\": {\r\n        \"name\": \"ntp-profile\",\r\n        \"description\": \"\",\r\n        \"ntpProfile\": {\r\n            \"profileProperties\": {\r\n                \"serverList\": [\r\n                    \"time.nist.gov\",\r\n                    \"pool.ntp.org\"\r\n                ]\r\n            }\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/ntpprofile/create",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"ntpprofile",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Blank Response\", function () {\r",
+											"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    },\r\n    \"name\": \"ntp-profile\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/ntpprofile/delete",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"ntpprofile",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Get Id\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(typeof jsonData.fqdnFilterProfile.header.id).to.eql(\"number\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/ntpprofile/list",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"ntpprofile",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Get Id\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(typeof jsonData.fqdnFilterProfile.header.id).to.eql(\"number\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    },\r\n    \"name\": \"ntp-profile\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/ntpprofile/get",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"ntpprofile",
+										"get"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Get Id\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(typeof jsonData.fqdnFilterProfile.header.id).to.eql(\"number\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    },\r\n    \"gatewayName\": \"aws-egress-gateway\",\r\n    \"ntpProfileName\": \"ntp-profile\",\r\n    \"enable\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/ntpprofile/set",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"ntpprofile",
+										"set"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Blank Response\", function () {\r",
+											"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    },\r\n    \"ucRequest\": {\r\n        \"id\": 1,\r\n        \"name\": \"ntp-profile\",\r\n        \"description\": \"NTP Profile\",\r\n        \"ntpProfile\": {\r\n            \"profileProperties\": {\r\n                \"serverList\": [\r\n                    \"time.nist.gov\"\r\n                ]\r\n            }\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/ntpprofile/update",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"ntpprofile",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Log Profile",
+					"item": [
+						{
+							"name": "Create (Group)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Get New Id\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(typeof jsonData.id).to.eql(\"number\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    },\r\n    \"ucRequest\": {\r\n        \"logProfile\": {\r\n            \"header\": {\r\n                \"name\": \"group-log-profile\",\r\n                \"description\": \"\",\r\n                \"type\": \"GROUP\",\r\n                \"childProfileIDs\": [\r\n                    1\r\n                ]\r\n            }\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/logprofile/create",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"logprofile",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create (Standalone)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Get New Id\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(typeof jsonData.id).to.eql(\"number\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    },\r\n    \"ucRequest\": {\r\n        \"logProfile\": {\r\n            \"servicceType\": \"DATADOG\",\r\n            \"header\": {\r\n                \"name\": \"datadog-log-profile\",\r\n                \"description\": \"\",\r\n                \"type\": \"DEFAULT\"\r\n            },\r\n            \"properties\": {\r\n                \"authToken\": \"1234567890\",\r\n                \"endpoint\": \"https://http-intake.logs.datadoghq.com/\",\r\n                \"skipVerifyCertificate\": true\r\n            }\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/logprofile/create",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"logprofile",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Blank Response\", function () {\r",
+											"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    },\r\n    \"name\": \"group-log-profile\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/logprofile/delete",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"logprofile",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Get Id\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(typeof jsonData.fqdnFilterProfile.header.id).to.eql(\"number\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/logprofile/list",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"logprofile",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"gatewayName\": \"aws-egress-gw\",\r\n    \"logProfileName\": \"datadog-log-profile\",\r\n    \"enable\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/gateway/logprofile/set",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"gateway",
+										"logprofile",
+										"set"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Get Id\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(typeof jsonData.fqdnFilterProfile.header.id).to.eql(\"number\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    },\r\n    \"name\": \"datadog-log-profile\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/logprofile/get",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"logprofile",
+										"get"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update (Group)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Blank Response\", function () {\r",
+											"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    },\r\n    \"ucRequest\": {\r\n        \"logProfile\": {\r\n            \"header\": {\r\n                \"name\": \"group-log-profile\",\r\n                \"description\": \"Group Log Profile\",\r\n                \"type\": \"GROUP\",\r\n                \"childProfileIDs\": [\r\n                    1\r\n                ]\r\n            }\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/logprofile/update",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"logprofile",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update (Standalone)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Blank Response\", function () {\r",
+											"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2023\"\r\n    },\r\n    \"ucRequest\": {\r\n        \"logProfile\": {\r\n            \"servicceType\": \"DATADOG\",\r\n            \"header\": {\r\n                \"name\": \"datadog-log-profile\",\r\n                \"description\": \"Datadog Log Profile\",\r\n                \"type\": \"DEFAULT\"\r\n            },\r\n            \"properties\": {\r\n                \"authToken\": \"1234567890\",\r\n                \"endpoint\": \"https://http-intake.logs.datadoghq.com/\",\r\n                \"skipVerifyCertificate\": true\r\n            }\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/logprofile/update",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"logprofile",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Route",
+			"item": [
+				{
+					"name": "AWS",
+					"item": [
+						{
+							"name": "Create (GWLB)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"cspAcctName\": \"AWS-Account3\",\r\n    \"region\": \"us-east-1\",\r\n    \"vpcRoute\" : {\r\n        \"operation\": \"CREATE\",\r\n        \"vpcID\": \"vpc-09ac81e87f09c986c\",\r\n        \"routeTableName\": \"spoke1-rt\",\r\n        \"nextHopType\": \"VpcEndpoint\",\r\n        \"nextHopID\": \"vpce-0db13776d2a82b221\",\r\n        \"destinationCIDR\": \"0.0.0.0/0\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/vpc/route/process",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"vpc",
+										"route",
+										"process"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create (IGW)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"cspAcctName\": \"AWS-Account3\",\r\n    \"region\": \"us-east-1\",\r\n    \"vpcRoute\": {\r\n        \"operation\": \"CREATE\",\r\n        \"vpcID\": \"vpc-09ac81e87f09c986c\",\r\n        \"routeTableName\": \"valtix-datapath-rt\",\r\n        \"nextHopType\": \"InternetGateway\",\r\n        \"nextHopID\": \"igw-0816762aa84061e02\",\r\n        \"destinationCIDR\": \"0.0.0.0/0\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/vpc/route/process",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"vpc",
+										"route",
+										"process"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"common\": {\n        \"acctName\": \"{{acctName}}\",\n        \"source\": \"RESTAPI\",\n        \"clientVersion\": \"Valtix-2022\"\n    },\n    \"cspAcctName\": \"AWS-Account3\",\n    \"region\": \"us-east-1\",\n    \"vpcRoute\" : {\n        \"operation\": \"DELETE\",\n        \"vpcID\": \"vpc-09ac81e87f09c986c\",\n        \"routeTableName\": \"spoke1-rt\",\n        \"destinationCIDR\": \"0.0.0.0/0\"\n        }\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/vpc/route/process",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"vpc",
+										"route",
+										"process"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Azure",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"cspAcctName\": \"Azure-Account\",\r\n    \"region\": \"eastus\",\r\n    \"vpcRoute\" : {\r\n        \"operation\": \"CREATE\",\r\n        \"vpcID\": \"/subscriptions/4dd570f7-2c54-44fd-a5bc-cbd39a2b174c/resourceGroups/valtix-rg/providers/Microsoft.Network/virtualNetworks/azure-eastus-vnet\",\r\n        \"routeTableID\": \"/subscriptions/4dd570f7-2c54-44fd-a5bc-cbd39a2b174c/resourceGroups/valtix-rg/providers/Microsoft.Network/routeTables/spoke-route-table\",\r\n        \"routeName\": \"route-to-valtix\",\r\n        \"nextHopType\": \"IPAddress\",\r\n        \"nextHopID\": \"10.0.0.4\",\r\n        \"destinationCIDR\": \"0.0.0.0/0\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/vpc/route/process",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"vpc",
+										"route",
+										"process"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"cspAcctName\": \"Azure-Account1\",\r\n    \"region\": \"eastus\",\r\n    \"vpcRoute\" : {\r\n        \"operation\": \"DELETE\",\r\n        \"vpcID\": \"/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/td-rest-azure-eastus-0-rg/providers/Microsoft.Network/virtualNetworks/td-rest-azure-eastus-0-vnet\",\r\n        \"routeTableID\": \"/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/td-rest-azure-eastus-0-rg/providers/Microsoft.Network/routeTables/spoke-route-table\",\r\n        \"routeName\": \"route-to-valtix\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/vpc/route/process",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"vpc",
+										"route",
+										"process"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GCP",
+					"item": [
+						{
+							"name": "Create (IGW)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"common\": {\n        \"acctName\": \"{{acctName}}\",\n        \"source\": \"RESTAPI\",\n        \"clientVersion\": \"Valtix-2022\"\n    },\n    \"cspAcctName\": \"GCP-Account1\",\n    \"region\": \"us-east1\",\n    \"vpcRoute\": {\n        \"operation\": \"CREATE\",\n        \"vpcID\": \"https://www.googleapis.com/compute/v1/projects/john-lab/global/networks/valtix-datapath-vpc\",\n        \"routeName\": \"valtix-datapath-route\",\n        \"nextHopType\": \"InternetGateway\",\n        \"destinationCIDR\": \"0.0.0.0/0\",\n        \"priority\": \"800\",\n        \"instanceTags\": [\"valtix-datapath\"]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/vpc/route/process",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"vpc",
+										"route",
+										"process"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create (ILB)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"cspAcctName\": \"GCP-Account1\",\r\n    \"region\": \"us-east1\",\r\n    \"vpcRoute\": {\r\n        \"operation\": \"CREATE\",\r\n        \"vpcID\": \"https://www.googleapis.com/compute/v1/projects/john-lab/global/networks/valtix-datapath-vpc\",\r\n        \"routeName\": \"route-to-valtix\",\r\n        \"nextHopType\": \"InternalLoadBalancer\",\r\n        \"nextHopID\": \"10.0.1.59\",\r\n        \"destinationCIDR\": \"0.0.0.0/0\",\r\n        \"priority\": \"900\",\r\n        \"instanceTags\": [\"valtix-protection\"]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/vpc/route/process",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"vpc",
+										"route",
+										"process"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"cspAcctName\": \"GCP-Account1\",\r\n    \"region\": \"us-west1\",\r\n    \"vpcRoutes\" : {\r\n        \"operation\": \"DELETE\",\r\n        \"vpcID\": \"https://www.googleapis.com/compute/v1/projects/john-lab/global/networks/valtix-datapath-vpc\",\r\n        \"routeName\": \"valtix-datapath-route\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/vpc/route/process",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"vpc",
+										"route",
+										"process"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Service Object",
+			"item": [
+				{
+					"name": "Create (Forwarding)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get New Id\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(typeof jsonData.id).to.eql(\"number\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"connection\": {\r\n        \"header\": {\r\n            \"name\": \"TCP-80-443\",\r\n            \"description\": \"TCP ports 80 and 443\"\r\n        },\r\n        \"type\": \"Forwarding\",\r\n        \"proto\": \"TCP\",\r\n        \"appIDs\": [],\r\n        \"snatEnable\": true,\r\n        \"srcPorts\": {\r\n            \"ranges\": [\r\n                {\r\n                    \"start\": \"0\",\r\n                    \"end\": \"65535\"\r\n                }\r\n            ]\r\n        },\r\n        \"destPorts\": {\r\n            \"ranges\": [\r\n                {\r\n                    \"start\": \"443\",\r\n                    \"end\": \"443\"\r\n                },\r\n                {\r\n                    \"start\": \"80\",\r\n                    \"end\": \"80\"\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/connection/create",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"connection",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create (ReverseProxy)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get New Id\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(typeof jsonData.id).to.eql(\"number\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"connection\": {\r\n        \"header\": {\r\n            \"name\": \"TCP-443-RP\",\r\n            \"description\": \"TCP ports 443 - ReverseProxy\"\r\n        },\r\n        \"type\": \"ReverseProxy\",\r\n        \"srcPorts\": {\r\n            \"ranges\": [\r\n                {\r\n                    \"start\": \"0\",\r\n                    \"end\": \"65535\"\r\n                }\r\n            ]\r\n        },\r\n        \"destPorts\": {\r\n            \"ranges\": [\r\n                {\r\n                    \"start\": \"443\",\r\n                    \"end\": \"443\"\r\n                }\r\n            ]\r\n        },\r\n        \"proto\": \"TCP\",\r\n        \"sniNames\": [\r\n        ],\r\n        \"backendPorts\": {\r\n            \"ranges\": [\r\n                {\r\n                    \"start\": \"443\",\r\n                    \"end\": \"443\"\r\n                }\r\n            ]\r\n        },\r\n        \"transportMode\": \"TCP\",\r\n        \"backendAddressGroupName\": \"backend-target\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/connection/create",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"connection",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Blank Response\", function () {\r",
+									"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"TCP-80-443\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/connection/delete",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"connection",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get Id\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(typeof jsonData.connection.header.id).to.eql(\"number\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/connection/list",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"connection",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Get Id\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(typeof jsonData.connection.header.id).to.eql(\"number\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"TCP-80-443\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/connection/get",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"connection",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Blank Response\", function () {\r",
+									"    pm.expect(pm.response.text()).to.eql(\"{}\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"connection\": {\r\n        \"header\": {\r\n            \"name\": \"TCP-80-443-8080-8443\",\r\n            \"description\": \"\",\r\n            \"id\": 131\r\n        },\r\n        \"type\": \"Forwarding\",\r\n        \"proto\": \"TCP\",\r\n        \"appIDs\": [],\r\n        \"destPorts\": {\r\n            \"ranges\": [\r\n                {\r\n                    \"start\": \"443\",\r\n                    \"end\": \"443\"\r\n                },\r\n                {\r\n                    \"start\": \"80\",\r\n                    \"end\": \"80\"\r\n                },\r\n                {\r\n                    \"start\": \"8443\",\r\n                    \"end\": \"8443\"\r\n                },\r\n                {\r\n                    \"start\": \"8080\",\r\n                    \"end\": \"8080\"\r\n                }\r\n            ]\r\n        },\r\n        \"srcPorts\": {\r\n            \"ranges\": [\r\n                {\r\n                    \"start\": \"0\",\r\n                    \"end\": \"65535\"\r\n                }\r\n            ]\r\n        },\r\n        \"snatEnable\": true\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/connection/update",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"connection",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Service VPC",
+			"item": [
+				{
+					"name": "AWS",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"cspAcctName\": \"AWS-Account3\",\r\n    \"name\": \"AWS-SVPC\",\r\n    \"region\": \"us-east-1\",\r\n    \"availabilityZones\": [\"us-east-1a\"],\r\n    \"cidr\": \"10.0.50.0/24\",    \r\n    \"transitGatewayID\": \"tgw-\",\r\n    \"useNATGateway\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/cspaccount/create",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cspaccount",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Azure",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"cspAcctName\": \"Azure-Account1\",\r\n    \"name\": \"Azure-SVNet\",\r\n    \"region\": \"westus2\",\r\n    \"cidr\": \"10.0.100.0/24\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/cspaccount/create",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cspaccount",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GCP",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"cspAcctName\": \"GCP-Account1\",\r\n    \"name\": \"GCP-SVPC\",\r\n    \"managementVPCCidr\": \"10.0.150.0/24\",\r\n    \"cidr\": \"10.0.151.0/24\",\r\n    \"region\": \"us-west1\",\r\n    \"availabilityZones\": [\"us-west1-b\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/cspaccount/create",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"cspaccount",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"AWS-SVPC\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/cspaccount/delete",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cspaccount",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/cspaccount/list",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cspaccount",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"name\": \"AWS-SVPC\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/cspaccount/get",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cspaccount",
+								"get"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Spoke VPC",
+			"item": [
+				{
+					"name": "Route",
+					"item": [
+						{
+							"name": "Update",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"cspAcctName\": \"sedemo-john-lab\",\r\n    \"region\": \"eu-west-1\",\r\n    \"servicesVPCID\": \"vpc-08a4c8d80838f4f0a\",\r\n    \"servicesVPCName\": \"sedemo-john-lab-eu-west-1\",\r\n    \"type\": \"ADD_USER_VPC_ROUTE\",\r\n    \"userVPC\": {\r\n        \"ID\": 140,\r\n        \"cspAcctName\": \"sedemo-john-lab\",\r\n        \"region\": \"eu-west-1\",\r\n        \"state\": \"ACTIVE\",\r\n        \"vpcID\": \"vpc-057107a8c166ce630\",\r\n        \"attachmentSubnets\": [\r\n            \"subnetID\": \"subnet-0fa6f6112a146d8b5\"\r\n        ],\r\n        \"routeTables\": [\r\n            \"routeTableID\": \"rtb-09159f664097df4cc\",\r\n            \"routes\": [\r\n                \"destination\": \"0.0.0.0/0\",\r\n                \"nextHop\": \"tgw-08e33badcc5bcba8f\",\r\n                \"nextHopType\": \"TransitGateway\"\r\n            ]\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/transit/vpc/update",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"transit",
+										"vpc",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Token",
+			"item": [
+				{
+					"name": "Get Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"accessToken\", jsonData.accessToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"apiKeyID\": \"{{apiKeyID}}\",\r\n    \"apiKeySecret\": \"{{apiKeySecret}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/user/gettoken",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"gettoken"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Administration",
+			"item": [
+				{
+					"name": "API Key",
+					"item": [
+						{
+							"name": "Delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"pm.environment.set(\"accessToken\", jsonData.accessToken);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"apiKeyID\": \"lxfoqpirubkdvqzzaovm\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/user/apikey/list",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"apikey",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"pm.environment.set(\"accessToken\", jsonData.accessToken);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    },\r\n    \"email\": \"john+lab@valtix.com\",\r\n    \"name\": \"RestAPIKey\",\r\n    \"role\": \"admin_rw\",\r\n    \"expiryTime\": \"2023-10-14T01:38:59.108Z\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/user/apikey/generate",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"apikey",
+										"generate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"pm.environment.set(\"accessToken\", jsonData.accessToken);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/user/apikey/list",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"apikey",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": []
+		},
+		{
+			"name": "Threat Research",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Get Id\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(typeof jsonData.id).to.eql(\"number\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"common\": {\r\n        \"acctName\": \"{{acctName}}\",\r\n        \"source\": \"RESTAPI\",\r\n        \"clientVersion\": \"Valtix-2022\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/v1/policyruleset/list",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"policyruleset",
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "https://freetier.svc.valtix.com",
+			"type": "string"
+		},
+		{
+			"key": "acctName",
+			"value": "ssjasonlundebwxlvjmt",
+			"type": "default"
+		},
+		{
+			"key": "apiKeyID",
+			"value": "otjikpisflltupowwcac",
+			"type": "default"
+		},
+		{
+			"key": "apiKeySecret",
+			"value": "jplnfutgvsscggrkazkeupefzaaotirrudukqiyw",
+			"type": "default"
+		},
+		{
+			"key": "accessToken",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlrZXlpZCI6Im90amlrcGlzZmxsdHVwb3d3Y2FjIiwiYXVkIjpbInZhbHRpeC1jbGkiLCJ2YWx0aXgtZGF0YXBhdGgiLCJ2YWx0aXgtY2ljZCJdLCJleHAiOjE3MDIyNjY2NzcsImh0dHA6Ly9hY2NvdW50X25hbWUiOiJzc2phc29ubHVuZGVid3hsdmptdCIsImh0dHA6Ly9lbWFpbCI6ImpsdW5kZUBjaXNjby5jb20iLCJodHRwOi8vcm9sZV9uYW1lIjoiYWRtaW5fcnciLCJodHRwOi8vdXVpZCI6IiIsImlhdCI6MTcwMjI2NDgxNywiaXNzIjoidmFsdGl4L0FQSSJ9.oHJtIxuGm9jQL6nuvYrzIU9OUCkzXuTixltmjOIgxbIYfSqMU9I5CdMDqQfJ1BS7qc9n0ySGqnY1S2QtP-vpXxX3e8APG59wUtvI49w8inCxSw2HIJNE3g-1lhxuKbiOa_6gJkKTvXarb_bb_xTo-6fx2U9-FaV0IJT_yojXMUKTSEf-zKhpazlBRkYP-_SoLeezzH_DqrqxrccWCUQqqY7gNfHp7dLf4Qu5YHGLuG6hSbYIDGs4_ID5bBZP_AEQ_OWKVeoYL2y51YAowUslXqMfL7XEsogV7lLVzG7wkd4_A5d08vNKxa25sGOP0l2uaAL6W2t5I0pPiR7wbixTqg",
+			"type": "default"
+		}
+	]
+}
